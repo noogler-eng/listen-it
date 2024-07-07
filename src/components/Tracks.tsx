@@ -7,12 +7,12 @@ import { Pause } from 'lucide-react';
 export default function Tracks({track, currentTrack, setCurrentTrack}: any){
 
     const [isPlaying, setIsPlaying] = useState(false);
-    const audioRef = useRef(null);
+    const audioRef = useRef<HTMLAudioElement>(null);
     
     const handlePlayPause = () => {
         if (isPlaying && currentTrack === track.name) {
           setIsPlaying(false);
-          audioRef?.current?.pause();
+          audioRef.current?.pause();
           setCurrentTrack("");
         } else {
             if (currentTrack !== track.name) {
