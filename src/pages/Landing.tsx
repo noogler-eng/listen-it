@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Tracks from "../components/Tracks";
+import { UserCheck } from 'lucide-react';
+
 
 
 export default function Landing() {
@@ -27,8 +29,6 @@ export default function Landing() {
     return <Tracks track={track} currentTrack={currentTrack} setCurrentTrack={setCurrentTrack} key={index}/>
   }): null
 
-  console.log(tracks);
-
 
   return <div className="h-full w-full flex flex-col items-center justify-center">
     <div className="flex flex-col gap-8 mt-10">
@@ -43,13 +43,17 @@ export default function Landing() {
         return <div key={index} className="h-1/2 w-1/2 flex flex-col items-center">
           <img src={artist?.images[0]?.url || artist?.images[1]?.url || artist?.images[2]?.url} alt="artist" className="rounded-full max-h-1/2 border-2"/>
           <div className="text-2xl mt-2">{artist.name}</div>
-          <div className="flex gap-4 w-full justify-center">
-            <div className="">{artist.followers.total}</div>
-            <div className="">{artist.popularity}</div>
+          <div className="flex gap-4 w-full justify-center items-center">
+            <div className="flex gap-2"><UserCheck size={20}/> {artist.followers.total}</div>
+            <span>|</span>
+            <div className="">popularity {artist.popularity}</div>
           </div>
-          <div className="flex gap-4 mt-2">
+          <div className="flex gap-4 mt-2 flex flex-wrap mt-4">
             {artist.genres.map((genre: string, index: any)=>{
-              return <div key={index} className="border-2 px-4 text-sm py-1 rounded-xl">{genre}</div>
+              const colors = ['#eea990', '#3e3d54', '#6e0b5', '#8c646a', '#2e4045'];
+              var color = colors[Math.floor(Math.random()*colors.length)];
+              console.log(color);
+              return <div key={index} className={`border-2 px-4 text-sm py-1 rounded-xl`} style={{backgroundColor: color}}>{genre}</div>
             })} 
           </div>
         </div>

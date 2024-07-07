@@ -4,6 +4,7 @@ import { Pause } from 'lucide-react';
 
 
 
+
 export default function Tracks({track, currentTrack, setCurrentTrack}: any){
 
     const [isPlaying, setIsPlaying] = useState(false);
