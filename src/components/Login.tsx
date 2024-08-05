@@ -5,12 +5,14 @@ export default function Login() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const accessToken = urlParams.get("access_token");
+    if(!localStorage.getItem('access_token')){
+      const urlParams = new URLSearchParams(window.location.search);
+      const accessToken = urlParams.get("access_token");
 
-    if (accessToken) {
-      localStorage.setItem("access_token", accessToken);
-      navigate("/"); 
+      if (accessToken) {
+        localStorage.setItem("access_token", accessToken);
+        navigate("/"); 
+      }
     }
   }, [navigate]);
 
