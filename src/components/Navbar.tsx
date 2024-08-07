@@ -1,17 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { userAtom } from "../store/atoms/userAtom";
 import axios from "axios";
 import Login from "./Login";
 
 
 export default function Navbar(){
 
-    const [data, setData] = useState({
-        img: '',
-        height: 0,
-        width: 0,
-        username: '',
-        email: ''
-    });
+    const [value, setvalue] = useRecoilState(userAtom);
 
     // sending body in the get request is bad approach
     useEffect(()=>{
@@ -22,10 +18,8 @@ export default function Navbar(){
             }
         }).then((res)=>{
             const incomingData = res.data.msg;
-            setData({
-                img: incomingData?.images[0].url,
-                height: incomingData?.images[0].height,
-                width: incomingData?.images[0].width,
+            setvalue({
+                profilepic: incomingData?.images[0].url,
                 username: incomingData?.display_name,
                 email: incomingData?.email
             })
@@ -34,18 +28,14 @@ export default function Navbar(){
         })
     }, [])
 
-    console.log(data);
-
 
     return <div className="p-4 flex justify-between items-center font-mono">
         <div className="text-4xl">listen-it</div>
-        <div className="flex gap-2 p-2 rounded-lg text-sm">
-            { data.username ? <img src={data?.img} height={60} width={60} className="rounded-full border p-1"/> : null }
-            { data.username ? <div>
-                <h3>{data.username}</h3>
-                <p>{data.email}</p>
-            </div> : null}
+        <div className="flex gap-2 items-center">
+            <div className="flex gap-2 rounded-lg text-sm bg-gray-200 rounded-xl">
+                { value.username ? <img src={value?.profilepic} height={60} width={60} className="rounded-full border p-1"/> : null }
+            </div>
+            <Login/>
         </div>
-        <Login/>
     </div>
 }

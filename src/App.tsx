@@ -1,20 +1,22 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import Landing from "./pages/Landing";
-import User from "./pages/User";
+import { RecoilRoot } from "recoil";
 import Navbar from "./components/Navbar";
+import Dashboard from "./pages/Dashboard";
+import Home from "./pages/Home";
 import "./index.css";
-import MyFollowers from "./components/MyFollowers";
 
 function App() {
   return (
-    <div className="w-sceen text-white bg-[#191414] min-h-screen">
-      <BrowserRouter>
-        <Navbar/>
-        <Routes>
-          <Route path="/" element={<MyFollowers />} />
-          <Route path="/user" element={<User />} />
-        </Routes>
-      </BrowserRouter>
+    <div className="w-sceen min-h-screen">
+      <RecoilRoot>
+        <BrowserRouter>
+          <Navbar/>
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/dashboard" element={<Dashboard/>} />
+          </Routes>
+        </BrowserRouter>
+      </RecoilRoot>
     </div>
   );
 }

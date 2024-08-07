@@ -1,8 +1,12 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { userAtom } from "../store/atoms/userAtom";
+import { useSetRecoilState } from "recoil";
 
 export default function Login() {
+  
   const navigate = useNavigate();
+  const setValue = useSetRecoilState(userAtom);
 
   useEffect(() => {
     if(!localStorage.getItem('access_token')){
@@ -22,14 +26,17 @@ export default function Login() {
         <button
           onClick={() => {
             localStorage.removeItem("access_token");
-            navigate("/") }} className="border-2 rounded-xl p-1">
-          Logout
-        </button>
-      ) : (
+            setValue({
+              profilepic: '',
+              username: '',
+              email: ''
+            })
+            navigate('/');
+          }} className="px-4 border-2 rounded-xl py-1 text-sm">Logout</button>) : (
         <button
           onClick={() => {
             window.location.href = "http://localhost:8080/login";
-          }} className="border-2 rounded-xl p-1">Login</button>
+          }} className="px-4 border-2 rounded-xl py-1 text-sm">Login</button>
       )}
     </div>
   );
