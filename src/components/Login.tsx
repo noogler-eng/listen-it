@@ -22,19 +22,14 @@ export default function Login() {
         <button
           onClick={() => {
             localStorage.removeItem("access_token");
-            navigate("/"); 
-          }}
-        >
+            navigate("/") }} className="border-2 rounded-xl p-1">
           Logout
         </button>
       ) : (
         <button
           onClick={() => {
             window.location.href = "http://localhost:8080/login";
-          }}
-        >
-          Login
-        </button>
+          }} className="border-2 rounded-xl p-1">Login</button>
       )}
     </div>
   );

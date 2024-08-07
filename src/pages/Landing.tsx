@@ -52,7 +52,6 @@ export default function Landing() {
             {artist.genres.map((genre: string, index: any)=>{
               const colors = ['#eea990', '#3e3d54', '#6e0b5', '#8c646a', '#2e4045'];
               var color = colors[Math.floor(Math.random()*colors.length)];
-              console.log(color);
               return <div key={index} className={`border-2 px-4 text-sm py-1 rounded-xl`} style={{backgroundColor: color}}>{genre}</div>
             })} 
           </div>

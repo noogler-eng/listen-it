@@ -37,17 +37,15 @@ export default function Navbar(){
     console.log(data);
 
 
-    return <div>
-        <div>
-
-        </div>
-        <div>
+    return <div className="p-4 flex justify-between items-center font-mono">
+        <div className="text-4xl">listen-it</div>
+        <div className="flex gap-2 p-2 rounded-lg text-sm">
             { data.username ? <img src={data?.img} height={60} width={60} className="rounded-full border p-1"/> : null }
             { data.username ? <div>
                 <h3>{data.username}</h3>
                 <p>{data.email}</p>
             </div> : null}
-            <Login/>
         </div>
+        <Login/>
     </div>
 }
