@@ -34,7 +34,6 @@ export default function Artists(){
         return <div>loading in followers side....</div>
     }
 
-    console.log(data);
     const artists = data?.items.map((artist: any, index: any)=>{
         const colors = ['#1b263b', '#8e7dbe', '#0a9396', '#ffa69e', '#84a98c'];
         var color = colors[Math.floor(Math.random()*colors.length)];

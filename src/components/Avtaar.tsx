@@ -13,7 +13,7 @@ export default function Avtaar({data}: any){
     });
     
     return (
-        <div className="w-full md:w-3/6 rounded-xl flex gap-4 items-center p-4 shadow-md hover:shadow-lg transition-shadow duration-200 ease-in-out bg-gradient-to-r from-[#1db954] via-[#191414] to-[#191414] border border-gray-200 justify-between">
+        <div className="rounded-xl flex gap-4 items-center p-4 bg-gradient-to-r from-[#1db954] via-[#191414] to-[#191414] border w-3/6">
             <img 
                 src={data.images[0].url} 
                 className="rounded-full shadow-sm" 
@@ -21,10 +21,10 @@ export default function Avtaar({data}: any){
                 height={140} 
                 alt={data.name}
             />
-            <div className="w-4/6 p-3 flex flex-col gap-3 items-end">
+            <div className=" p-3 flex flex-col gap-3">
                 <p className="text-lg font-semibold text-white">{data.name}</p>
                 <p className="text-sm text-white">Followers: {data.followers.total.toLocaleString()}</p>
-                <div className="flex flex-wrap gap-2 w-4/6 justify-end">
+                <div className="flex flex-wrap gap-2">
                     {genre}
                 </div>
             </div>
