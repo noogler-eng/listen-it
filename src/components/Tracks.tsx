@@ -29,7 +29,7 @@ export default function Tracks({track, currentTrack, setCurrentTrack}: any){
         }
     }, [currentTrack]);
 
-    return <div className="flex bg-[#1db954] rounded-xl text-white gap-4 bg-gradient-to-r from-[#1db954] via-[#191414] to-[#191414]">
+    return <div className="md:w-[800px] flex bg-[#1db954] rounded-xl text-white gap-4 bg-gradient-to-r from-[#1db954] via-[#191414] to-[#191414]">
         <img src={track.album?.images[0].url.includes("mosaic") ? "" : track.album?.images[0].url || ""} className="h-max-36 w-36 rounded-r-full"/>
         <div className="flex w-full justify-between">
             <div className="p-4">

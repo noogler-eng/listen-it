@@ -5,12 +5,13 @@ import Dashboard from "./pages/Dashboard";
 import TopTracks from "./pages/TopTracks";
 import MyFollowers from "./pages/MyFollowers";
 import Playlist from "./pages/Playlist";
+import Landing from "./pages/Landing";
 import Home from "./pages/Home";
 import "./index.css";
 
 function App() {
   return (
-    <div className="w-sceen min-h-screen">
+    <div className="w-sceen min-h-screen bg-[#191414] text-white">
       <RecoilRoot>
         <BrowserRouter>
           <Navbar/>
@@ -20,7 +21,7 @@ function App() {
             <Route path="/topListen" element={<TopTracks/>} />
             <Route path="/topfollowers" element={<MyFollowers/>} />
             <Route path="/playlist" element={<Playlist/>} />
-
+            <Route path="/searchArtistSong" element={<Landing/>} />
           </Routes>
         </BrowserRouter>
       </RecoilRoot>

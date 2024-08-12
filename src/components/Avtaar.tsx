@@ -13,7 +13,7 @@ export default function Avtaar({data}: any){
     });
     
     return (
-        <div className="rounded-xl flex gap-4 items-center p-4 bg-gradient-to-r from-[#1db954] via-[#191414] to-[#191414] border w-3/6">
+        <div className="rounded-xl flex gap-4 items-center p-4 bg-gradient-to-r from-[#1db954] via-[#191414] to-[#191414] w-3/6">
             <img 
                 src={data.images[0].url} 
                 className="rounded-full shadow-sm" 
