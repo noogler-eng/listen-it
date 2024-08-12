@@ -9,6 +9,7 @@ export default function Home(){
     const [value, setValue] = useRecoilState(userAtom);
     const naviagte = useNavigate();
     
+    console.log(value);
     
     return <div className="font-mono h-full w-full flex flex-col items-center justify-center p-12 gap-8">
         <h2 className="text-6xl bg-gradient-to-r from-green-500 to-black bg-clip-text text-transparent font-bold">my-spotify</h2>
