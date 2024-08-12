@@ -34,7 +34,7 @@ export default function Navbar(){
         <div className="text-4xl">listen-it</div>
         <div className="flex gap-2 items-center">
             <div className="flex gap-2 rounded-lg text-sm bg-gray-200 rounded-xl">
-                { value.username ? <img src={value?.profilepic} height={60} width={60} className="rounded-full border p-1"/> : null }
+                { value.profilepic ? <img src={value?.profilepic || ""} height={60} width={60} className="rounded-full border p-1"/> : null }
             </div>
             <Login/>
         </div>
