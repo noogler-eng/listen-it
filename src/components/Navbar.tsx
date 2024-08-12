@@ -20,7 +20,7 @@ export default function Navbar(){
             const incomingData = res.data.msg;
             console.log(incomingData);
             setvalue({
-                profilepic: incomingData?.images[0].url,
+                profilepic: incomingData?.images[0]?.url,
                 username: incomingData?.display_name,
                 email: incomingData?.email
             })
