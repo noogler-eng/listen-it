@@ -18,6 +18,7 @@ export default function Navbar(){
             }
         }).then((res)=>{
             const incomingData = res.data.msg;
+            console.log(incomingData);
             setvalue({
                 profilepic: incomingData?.images[0].url,
                 username: incomingData?.display_name,
