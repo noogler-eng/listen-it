@@ -12,7 +12,7 @@ export default function Navbar(){
     // sending body in the get request is bad approach
     useEffect(()=>{
         const access_token = localStorage.getItem('access_token');
-        axios.get('http://localhost:8080/me', {
+        axios.get(`${process.env.REACT_APP_URL}/me`, {
             headers: {
                 authorization: access_token
             }

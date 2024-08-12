@@ -17,7 +17,7 @@ export default function Playlist() {
   
     useEffect(() => {
         setLoading(true);
-        axios.get("http://localhost:8080/me/playlists", {
+        axios.get(`${process.env.REACT_APP_URL}/me/playlists`, {
             headers: {
             authorization: localStorage.getItem("access_token"),
             },
@@ -42,7 +42,6 @@ export default function Playlist() {
         return <div>loading...</div>;
     }
 
-    console.log(data);
     const playlistData = data?.map((playlist: any, index: any)=>{
         return <div key={index} className=" flex flex-col gap-8 items-center">
             <div>

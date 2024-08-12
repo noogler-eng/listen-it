@@ -35,7 +35,7 @@ export default function Login() {
           }} className="px-4 border-2 rounded-xl py-1 text-sm">Logout</button>) : (
         <button
           onClick={() => {
-            window.location.href = "http://localhost:8080/login";
+            window.location.href = `${process.env.REACT_APP_URL}/login`;
           }} className="px-4 border-2 rounded-xl py-1 text-sm">Login</button>
       )}
     </div>

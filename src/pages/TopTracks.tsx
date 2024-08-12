@@ -15,7 +15,7 @@ export default function TopTracks() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:8080/me/tracks", {
+      .get(`${process.env.REACT_APP_URL}/me/tracks`, {
         headers: {
           authorization: localStorage.getItem("access_token"),
         },

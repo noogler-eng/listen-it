@@ -10,7 +10,7 @@ export default function Artists(){
 
     useEffect(() => {
         setLoading(true);
-        axios.get("http://localhost:8080/me/artists", {
+        axios.get(`${process.env.REACT_APP_URL}/me/artists`, {
             headers: {
                 authorization: localStorage.getItem("access_token"),
             },

@@ -15,7 +15,7 @@ export default function MyFollowers(){
 
     useEffect(() => {
         setLoading(true);
-        axios.get("http://localhost:8080/me/follower", {
+        axios.get(`${process.env.REACT_APP_URL}/me/follower`, {
             headers: {
                 authorization: localStorage.getItem("access_token"),
             },
