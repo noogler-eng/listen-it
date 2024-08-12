@@ -28,7 +28,7 @@ export default function Home(){
         </div>
         <div className="border-2 border-gray-200 h-1 w-4/6"></div>
         <div className="flex flex-col gap-2">
-            {value.email ? <button className="px-4 border-2 rounded-xl py-1 text-sm" onClick={()=>{
+            {value ? <button className="px-4 border-2 rounded-xl py-1 text-sm" onClick={()=>{
                 localStorage.removeItem('access_token');
                 setValue({
                     profilepic: "",
@@ -36,7 +36,7 @@ export default function Home(){
                     email: ""
                 })
             }}>logout</button> : <Login/>}
-            {value.email ? <div>
+            {value ? <div>
                 <button className="px-4 border-2 rounded-xl py-1 text-sm flex gap-1 items-center" onClick={()=>{
                     naviagte('/dashboard');
                 }}><LayoutDashboard size={16}/>/dashboard</button>
