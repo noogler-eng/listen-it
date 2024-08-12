@@ -8,6 +8,7 @@ export default function Login() {
   const navigate = useNavigate();
   const setValue = useSetRecoilState(userAtom);
 
+
   useEffect(() => {
     if(!localStorage.getItem('access_token')){
       const urlParams = new URLSearchParams(window.location.search);
@@ -33,10 +34,7 @@ export default function Login() {
             })
             navigate('/');
           }} className="px-4 border-2 rounded-xl py-1 text-sm">Logout</button>) : (
-        <button
-          onClick={() => {
-            window.location.href = `${process.env.REACT_APP_URL}/login`;
-          }} className="px-4 border-2 rounded-xl py-1 text-sm">Login</button>
+        <a className="px-4 border-2 rounded-xl py-1 text-sm" href={`${import.meta.env.VITE_URL}/login`}>Login</a>
       )}
     </div>
   );

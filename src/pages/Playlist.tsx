@@ -17,7 +17,7 @@ export default function Playlist() {
   
     useEffect(() => {
         setLoading(true);
-        axios.get(`${process.env.REACT_APP_URL}/me/playlists`, {
+        axios.get(`${import.meta.env.VITE_URL}/me/playlists`, {
             headers: {
             authorization: localStorage.getItem("access_token"),
             },

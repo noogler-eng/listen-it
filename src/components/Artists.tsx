@@ -10,7 +10,7 @@ export default function Artists(){
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`${process.env.REACT_APP_URL}/me/artists`, {
+        axios.get(`${import.meta.env.VITE_URL}/me/artists`, {
             headers: {
                 authorization: localStorage.getItem("access_token"),
             },
